@@ -11,7 +11,7 @@ Al instalar Termux en tu móvil, dispondrás de un emulador de terminal para And
 - git clone https://github.com/TeamJxll/Requerimientos-JXLL
 - cd Requerimientos-JXLL
 - chmod +x *
-- bash BSZ.sh
+- bash JXLL.sh
 
 # Opciones
 - [1] Instalar todos los paquetes
