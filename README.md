@@ -26,11 +26,16 @@ bash JXLL.sh
 ```
 ## Opciones del menú
 Una vez que hayas ejecutado JXLL.sh, se te presentará un menú interactivo con las siguientes opciones:
-
+<br>
 [1] Instalar todos los paquetes necesarios.
+<br>
 [2] Instalar banners personalizados para tu Termux.
+<br>
 [3] Instalar el efecto Matrix.
+<br>
 [4] Salir del script.
+<br>
 👨‍💻 Hecho por /𝑻𝒆𝒂𝒎 𝑱𝑿𝑳𝑳
+<br>
 Si te gustó este proyecto, no dudes en contribuir o compartirlo. Cualquier mejora o sugerencia será bienvenida.
 
