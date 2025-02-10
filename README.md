@@ -1,4 +1,4 @@
-**Herramienta que instala todos los paquetes y te personaliza tu Termux**
+## Herramienta que instala todos los paquetes y te personaliza tu Termux
 
 Termux es un emulador de terminal para Android, que funciona directamente sin necesidad de rootear o realizar complicadas configuraciones. Al instalar Termux en tu móvil, dispondrás de un emulador de terminal con un sistema base mínimo, pero que es fácilmente ampliable mediante el gestor de paquetes APT.
 
