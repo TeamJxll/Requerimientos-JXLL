@@ -35,44 +35,60 @@ done
 
 case $Opcion_Incog in
     1)
-        echo -e "\e[1;34m Iniciando la descarga de los paquetes . . . . Puede Demorar "
-        pkg update -y &> /dev/null
-        echo -e "\e[1;34m Empezando..."
-        for i in {5..100..5}; do
-            case $i in
-                5) pkg install ruby -y &> /dev/null ;;
-                10) git pull &> /dev/null ;;
-                15) pkg update -y &> /dev/null ;;
-                20) pkg upgrade -y &> /dev/null ;;
-                23) pkg install python -y &> /dev/null ;;
-                28) pkg install git -y &> /dev/null ;;
-                29) pkg install nano -y &> /dev/null ;;
-                30) pip install openssl -y &> /dev/null ;;
-                32) pkg install openssl -y &> /dev/null ;;
-                35) pkg install openssh -y &> /dev/null ;;
-                40) termux-setup-storage -y &> /dev/null ;;
-                45) pip install requests -y &> /dev/null ;;
-                50) pkg install tor -y &> /dev/null ;;
-                55) pkg install curl -y &> /dev/null ;;
-                58) pip install curl -y &> /dev/null ;;
-                60) pip install tor -y &> /dev/null ;;
-                65) pip2 install mechanize -y &> /dev/null ;;
-                66) pkg install git php curl openssh grep -y &> /dev/null ;;
-                67) pip install stem -y &> /dev/null ;;
-                78) pip install mechanize -y &> /dev/null ;;
-                80) pip2 install mechanize -y &> /dev/null ;;
-                82) pip install php -y &> /dev/null ;;
-                85) pip install tor -y &> /dev/null ;;
-                87) pip3 install requests -y &> /dev/null ;;
-                93) pip3 install clint -y &> /dev/null ;;
-                95) pip3 install coloramas -y &> /dev/null ;;
-                98) pkg install w3m -y &> /dev/null ;;
-                99) pkg install wget -y &> /dev/null ;;
-                100) pkg install w3m -y &> /dev/null ;;
-            esac
-            echo -e "\e[1;34m Instalando ..... espere %% $i%"
-        done
-        echo -e "\e[36m Finalizando la Instalación de paquetes ...."
+echo -e "\e[1;34m Iniciando la descarga de los paquetes . . . . Puede Demorar "
+pkg update -y &> /dev/null
+echo -e "\e[1;34m Empezando..."
+
+# Longitud total de la barra de carga
+total=20
+
+for i in {5..100..5}; do
+    # Calcula cuántos caracteres de barra de progreso mostrar
+    progress=$((i * total / 100))
+    bar=$(printf "%-${total}s" "#" | sed "s/ /#/g" | cut -c1-$progress)
+
+    # Muestra la barra de carga
+    echo -ne "\r\e[1;34m Instalando ..... $i% [${bar// /#}]"
+
+    case $i in
+        5) pkg install ruby -y &> /dev/null ;;
+        10) git pull &> /dev/null ;;
+        15) pkg update -y &> /dev/null ;;
+        20) pkg upgrade -y &> /dev/null ;;
+        23) pkg install python -y &> /dev/null ;;
+        28) pkg install git -y &> /dev/null ;;
+        29) pkg install nano -y &> /dev/null ;;
+        30) pip install openssl -y &> /dev/null ;;
+        32) pkg install openssl -y &> /dev/null ;;
+        35) pkg install openssh -y &> /dev/null ;;
+        40) termux-setup-storage -y &> /dev/null ;;
+        45) pip install requests -y &> /dev/null ;;
+        50) pkg install tor -y &> /dev/null ;;
+        55) pkg install curl -y &> /dev/null ;;
+        58) pip install curl -y &> /dev/null ;;
+        60) pip install tor -y &> /dev/null ;;
+        65) pip2 install mechanize -y &> /dev/null ;;
+        66) pkg install git php curl openssh grep -y &> /dev/null ;;
+        67) pip install stem -y &> /dev/null ;;
+        78) pip install mechanize -y &> /dev/null ;;
+        80) pip2 install mechanize -y &> /dev/null ;;
+        82) pip install php -y &> /dev/null ;;
+        85) pip install tor -y &> /dev/null ;;
+        87) pip3 install requests -y &> /dev/null ;;
+        93) pip3 install clint -y &> /dev/null ;;
+        95) pip3 install coloramas -y &> /dev/null ;;
+        98) pkg install w3m -y &> /dev/null ;;
+        99) pkg install wget -y &> /dev/null ;;
+        100) pkg install w3m -y &> /dev/null ;;
+    esac
+done
+
+# Mensaje final de la instalación de los paquetes
+echo -e "\e[36m Finalizando la Instalación de paquetes ...."
+
+# Mostrar el banner y el menú nuevamente
+banertor
+
         ;;
         2)
 # Función para instalar dependencias
@@ -192,4 +208,4 @@ done
             echo -e "\e[31mOpción no válida.\e[0m"
             ;;
     esac
-done
+
